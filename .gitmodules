@@ -1,0 +1,3 @@
+[submodule "Source/DelphiAST"]
+	path = Source/DelphiAST
+	url = https://github.com/Kridselot/DelphiAST
