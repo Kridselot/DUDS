@@ -1,3 +1,7 @@
 [submodule "Source/DelphiAST"]
 	path = Source/DelphiAST
 	url = https://github.com/Kridselot/DelphiAST
+[submodule "Source/OmniThreadLibrary"]
+	path = Source/OmniThreadLibrary
+	url = https://github.com/Kridselot/OmniThreadLibrary
+	branch = master
