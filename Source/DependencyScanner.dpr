@@ -18,7 +18,8 @@ uses
   Duds.Common.Parser.Pascal.Tokeniser in 'Duds.Common.Parser.Pascal.Tokeniser.pas',
   Duds.Vcl.Utils in 'Duds.Vcl.Utils.pas',
   Duds.Common.Delphi in 'Duds.Common.Delphi.pas',
-  Duds.Vcl.VirtualTreeview in 'Duds.Vcl.VirtualTreeview.pas';
+  Duds.Vcl.VirtualTreeview in 'Duds.Vcl.VirtualTreeview.pas',
+  Duds.Tasks in 'Duds.Tasks.pas';
 
 {$R *.res}
 

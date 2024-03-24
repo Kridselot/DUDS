@@ -58,7 +58,9 @@ uses
 
   Duds.Vcl.HourGlass,
   Duds.Vcl.Utils,
-  Duds.Vcl.VirtualTreeview, SynEditCodeFolding;
+  Duds.Vcl.VirtualTreeview, SynEditCodeFolding
+  , threading
+  ;
 
 type
   TfrmMain = class(TForm)
@@ -285,7 +287,7 @@ type
     FFMXFormCount: Integer;
     FVCLFormCount: Integer;
     FNextStatusUpdate: TDateTime;
-    FDeppestScanDepth: Integer;
+    FDeepestScanDepth: Integer;
     FLastScanNode: PVirtualNode;
     FClosing: Boolean;
     FShowTermParents: Boolean;
@@ -2719,8 +2721,8 @@ procedure TfrmMain.BuildDependencyTree(NoLog: Boolean);
       Inc(FScannedFiles);
       Inc(FScanDepth);
 
-      if FScanDepth > FDeppestScanDepth then
-        FDeppestScanDepth := FScanDepth;
+      if FScanDepth > FDeepestScanDepth then
+        FDeepestScanDepth := FScanDepth;
       UnitFilename := GetUnitFilename(UsedUnitInfo.DelphiUnitName);
 
       InPath := UnitFilename <> '';
@@ -2846,7 +2848,7 @@ begin
   FScannedFiles := 0;
   FParsedFileCount := 0;
   FLineCount := 0;
-  FDeppestScanDepth := 0;
+  FDeepestScanDepth := 0;
   FScanDepth := 0;
   FFMXFormCount := 0;
   FVCLFormCount := 0;
@@ -2886,7 +2888,7 @@ begin
     AddStat(StrFMXFormCount, FormatCardinal(FFMXFormCount));
     AddStat(StrTotalLines, FormatCardinal(FLineCount));
     AddStat(StrSearchPathFiles, FormatCardinal(FFiles.Count));
-    AddStat(StrDeepestScanDepth, FDeppestScanDepth);
+    AddStat(StrDeepestScanDepth, FDeepestScanDepth);
 
     if FBusy then
     begin

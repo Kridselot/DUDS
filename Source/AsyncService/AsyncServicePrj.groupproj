@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{14BD5082-2E51-4904-B6E0-0141621D63E7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AsyncService.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\AsyncServiceTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\DependencyScanner.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AsyncService">
+        <MSBuild Projects="AsyncService.dproj"/>
+    </Target>
+    <Target Name="AsyncService:Clean">
+        <MSBuild Projects="AsyncService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AsyncService:Make">
+        <MSBuild Projects="AsyncService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AsyncServiceTests">
+        <MSBuild Projects="Test\AsyncServiceTests.dproj"/>
+    </Target>
+    <Target Name="AsyncServiceTests:Clean">
+        <MSBuild Projects="Test\AsyncServiceTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AsyncServiceTests:Make">
+        <MSBuild Projects="Test\AsyncServiceTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DependencyScanner">
+        <MSBuild Projects="..\DependencyScanner.dproj"/>
+    </Target>
+    <Target Name="DependencyScanner:Clean">
+        <MSBuild Projects="..\DependencyScanner.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DependencyScanner:Make">
+        <MSBuild Projects="..\DependencyScanner.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AsyncService;AsyncServiceTests;DependencyScanner"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AsyncService:Clean;AsyncServiceTests:Clean;DependencyScanner:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AsyncService:Make;AsyncServiceTests:Make;DependencyScanner:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

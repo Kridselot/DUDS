@@ -388,7 +388,6 @@ var
   ProjectFilename: String;
 begin
   Result := FALSE;
-
   try
     XML := TXMLDocument.Create(Self);
 

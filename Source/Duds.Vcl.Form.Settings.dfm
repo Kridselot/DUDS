@@ -15,6 +15,7 @@ object frmDependencyScannerSetting: TfrmDependencyScannerSetting
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 13
   object pcSettings: TPageControl
     AlignWithMargins = True
@@ -109,8 +110,8 @@ object frmDependencyScannerSetting: TfrmDependencyScannerSetting
             AlignWithMargins = True
             Left = 1
             Top = 1
-            Width = 585
-            Height = 43
+            Width = 558
+            Height = 39
             Margins.Left = 1
             Margins.Top = 1
             Margins.Right = 1
@@ -132,8 +133,6 @@ object frmDependencyScannerSetting: TfrmDependencyScannerSetting
             ParentFont = False
             Transparent = True
             WordWrap = True
-            ExplicitWidth = 555
-            ExplicitHeight = 39
           end
         end
       end
@@ -155,8 +154,6 @@ object frmDependencyScannerSetting: TfrmDependencyScannerSetting
         TabOrder = 1
         WordWrap = False
         OnChange = OnSettingChange
-        ExplicitWidth = 470
-        ExplicitHeight = 328
       end
     end
     object tabSearchPaths: TTabSheet
@@ -213,8 +210,6 @@ object frmDependencyScannerSetting: TfrmDependencyScannerSetting
         TabOrder = 1
         WordWrap = False
         OnChange = OnSettingChange
-        ExplicitWidth = 470
-        ExplicitHeight = 381
       end
     end
     object tabUnitScopes: TTabSheet
@@ -258,8 +253,6 @@ object frmDependencyScannerSetting: TfrmDependencyScannerSetting
         TabOrder = 0
         WordWrap = False
         OnChange = OnSettingChange
-        ExplicitWidth = 583
-        ExplicitHeight = 381
       end
     end
     object tabScan: TTabSheet
