@@ -1,4 +1,5 @@
 object NexusDbModule: TNexusDbModule
+  OnCreate = DataModuleCreate
   Height = 480
   Width = 640
   object nxDatabase1: TnxDatabase
